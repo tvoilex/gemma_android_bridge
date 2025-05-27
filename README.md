@@ -1,4 +1,4 @@
-# 🤖 Greedex - AI-Powered Android Controller
+# 🤖 GAB - AI-Powered Android Controller
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -187,9 +187,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - All contributors and users of this project
 
 ## 📞 Support
-
-- 📋 **Issues**: [GitHub Issues](https://github.com/greedex/greedex/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/greedex/greedex/discussions)
 - 📖 **Documentation**: [Project Overview](PROJECT_OVERVIEW.md)
 
 ---

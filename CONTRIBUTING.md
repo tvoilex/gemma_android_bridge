@@ -30,8 +30,8 @@ Thank you for your interest in contributing to Greedex! This document provides g
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/your-username/greedex.git
-   cd greedex
+   git clone https://github.com/tvoilex/gemma_android_bridge.git
+   cd gemma_android_bridge
    ```
 3. **Create a virtual environment**:
    ```bash
