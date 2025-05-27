@@ -98,6 +98,8 @@ This will handle most of the setup automatically.
 - "Type 'hello world' in the text field"
 - "Go back to the home screen"
 - "Open settings and navigate to WiFi"
+  ![image](https://github.com/user-attachments/assets/767e156a-9098-45c1-8b8c-d02b41c631ad)
+
 
 ## Project Structure
 
