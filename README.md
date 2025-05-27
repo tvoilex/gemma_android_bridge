@@ -17,53 +17,76 @@ An intelligent Android device controller that uses Google's Gemma3 language mode
 ## Prerequisites
 
 1. **Python 3.8+**
-2. **Android Debug Bridge (ADB)**
+2. **Ollama** (for running Gemma3 model locally)
+   - Install from [ollama.ai](https://ollama.ai) or use: `curl -fsSL https://ollama.ai/install.sh | sh`
+3. **Android Debug Bridge (ADB)**
    - Install Android SDK Platform Tools
    - Enable USB Debugging on your Android device
-3. **GPU Support** (recommended for Gemma3)
+4. **GPU Support** (recommended for Gemma3)
    - CUDA-compatible GPU for faster inference
 
 ## Setup
 
-1. **Create and activate virtual environment:**
+### Quick Setup (Automated)
+```bash
+python setup.py
+```
+This will handle most of the setup automatically.
+
+### Manual Setup
+
+1. **Install Ollama and Gemma3 model:**
+   ```bash
+   # Install Ollama (if not already installed)
+   curl -fsSL https://ollama.ai/install.sh | sh
+   
+   # Start Ollama service
+   ollama serve
+   
+   # In a new terminal, pull Gemma3 model
+   ollama pull gemma3:latest
+   ```
+
+2. **Create and activate virtual environment:**
    ```bash
    python -m venv gemma_android_env
    source gemma_android_env/bin/activate  # On Windows: gemma_android_env\Scripts\activate
    ```
 
-2. **Install dependencies:**
+3. **Install Python dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
-   
-   Or run the automated setup:
-   ```bash
-   python setup.py
-   ```
 
-3. **Enable USB Debugging on your Android device:**
+4. **Enable USB Debugging on your Android device:**
    - Go to Settings > About Phone
    - Tap "Build Number" 7 times to enable Developer Options
    - Go to Settings > Developer Options
    - Enable "USB Debugging"
 
-4. **Connect your Android device:**
+5. **Connect your Android device:**
    ```bash
    adb devices
    ```
    You should see your device listed.
 
-5. **Run the application:**
+6. **Start the services:**
+   
+   **Option A: Using separate scripts (recommended for development)**
+   ```bash
+   # Terminal 1: Start Gemma3 service
+   ./run_gemma.sh
+   
+   # Terminal 2: Start Flask application
+   ./run_flask.sh
+   ```
+   
+   **Option B: All-in-one launcher**
    ```bash
    python start.py
    ```
-   
-   Or for development with debug mode:
-   ```bash
-   python app.py
-   ```
 
-6. **Open your browser:**
+7. **Open your browser:**
    Navigate to `http://localhost:5002`
 
 ## Usage Examples
@@ -108,10 +131,30 @@ An intelligent Android device controller that uses Google's Gemma3 language mode
 
 ## Troubleshooting
 
-1. **Device not found**: Ensure USB debugging is enabled and device is connected
-2. **Permission denied**: Check ADB permissions and device authorization
-3. **Model loading issues**: Ensure sufficient RAM/VRAM for Gemma3
-4. **Slow responses**: Consider using a smaller model variant or GPU acceleration
+### Ollama/Gemma Issues
+1. **Ollama not found**: 
+   - Install Ollama: `curl -fsSL https://ollama.ai/install.sh | sh`
+   - Restart your terminal after installation
+2. **Gemma model not found**: 
+   - Pull the model: `ollama pull gemma2:2b`
+   - Check available models: `ollama list`
+3. **Ollama service not running**: 
+   - Start service: `ollama serve`
+   - Check if running: `curl http://localhost:11434/api/tags`
+4. **Model loading slow**: 
+   - First download takes time (model is ~1.5GB)
+   - Subsequent loads are faster
+   - Use GPU if available for better performance
+
+### Android Device Issues
+5. **Device not found**: Ensure USB debugging is enabled and device is connected
+6. **Permission denied**: Check ADB permissions and device authorization
+7. **ADB not found**: Install Android SDK Platform Tools
+
+### Application Issues
+8. **Port already in use**: Change port in `app.py` or kill existing process
+9. **Dependencies missing**: Run `pip install -r requirements.txt`
+10. **Virtual environment issues**: Recreate with `python -m venv gemma_android_env`
 
 ## 🚀 Future Enhancements
 
