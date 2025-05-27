@@ -1,4 +1,4 @@
-# Contributing to Greedex
+# Contributing to GAB
 
 Thank you for your interest in contributing to Greedex! This document provides guidelines and information for contributors.
 
